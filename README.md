@@ -13,12 +13,12 @@ Basic Components:
 - optional: DC 12V water pump (800 l/h / heigt 5 m, brushless submersible)
 
 ### links
-[Why most Arduino soil moisture sensors suck (incl. solution)](https://www.youtube.com/watch?v=m0mcctcvity)
-[Soil Data APIs](https://stormglass.io/soil-moisture-temperature)
-[5 Types Of Soil Sensors](https://www.renkeer.com/5-types-soil-sensors/)
-[Soil moisture monitoring: a selection guide](https://www.agric.wa.gov.au/horticulture/soil-moisture-monitoring-selection-guide)
-[Soil moisture sensors—How they work](https://www.metergroup.com/en/meter-environment/measurement-insights/tdr-fdr-capacitance-compared?creative=589325297946&keyword=&matchtype=&network=g&device=m&gclid=eaiaiqobchmi_pcw3rx_gamv85rocr0grqxgeaayayaaegkygvd_bwe)
-[Water retention curve](https://en.m.wikipedia.org/wiki/water_retention_curve)
+[Why most Arduino soil moisture sensors suck (incl. solution)](https://www.youtube.com/watch?v=m0mcctcvity)\
+[Soil Data APIs](https://stormglass.io/soil-moisture-temperature)\
+[5 Types Of Soil Sensors](https://www.renkeer.com/5-types-soil-sensors/)\
+[Soil moisture monitoring: a selection guide](https://www.agric.wa.gov.au/horticulture/soil-moisture-monitoring-selection-guide)\
+[Soil moisture sensors—How they work](https://www.metergroup.com/en/meter-environment/measurement-insights/tdr-fdr-capacitance-compared?creative=589325297946&keyword=&matchtype=&network=g&device=m&gclid=eaiaiqobchmi_pcw3rx_gamv85rocr0grqxgeaayayaaegkygvd_bwe)\
+[Water retention curve](https://en.m.wikipedia.org/wiki/water_retention_curve)\
 
 ### improvement
 
