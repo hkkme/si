@@ -5,7 +5,7 @@
 ### low-tech smart irrigation system for urban/school gardens. join our team :)
 
 Basic Components:
-- 24V/12V to 5V 5A Buck-Converter
+- LM2596S DC-DC power supply adapter step down module
 - Microcontroller (e.g Arduino Uno)
 - Analog Capacitive Soil Moisture Sensor, DC 3.3 to 5V (e.g KeeYees)
 - 5V Relay for Arduino
