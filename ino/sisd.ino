@@ -1,4 +1,5 @@
 // smart irrigation + sd
+// trouble: linux > gnome-disks > format disk
 
 #include <SPI.h>
 #include <SD.h>
