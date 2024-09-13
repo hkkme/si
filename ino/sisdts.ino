@@ -81,12 +81,12 @@ void loop(){
         digitalWrite(relayPin, 1);
         // pause to let water infiltrate
         // adjust according to hose length
-        // delay(50000);
-        // digitalWrite(relayPin, 0);
-        // delay(10000);
+        delay(50000);
+        digitalWrite(relayPin, 0);
+        delay(10000);
     } else {
         digitalWrite(relayPin, 0);
-        // delay(60000);
+        delay(60000);
     }
 
     delay(2000);
