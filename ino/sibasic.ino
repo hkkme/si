@@ -14,7 +14,7 @@ void loop(){
   sensorValue = analogRead(sensorPin);
   Serial.println(sensorValue);
 
-  if(sensorValue > 440) {
+  if(sensorValue > 425) {
     digitalWrite(relayPin, 1);
     // pause to let water infiltrate
     // adjust according to hose length

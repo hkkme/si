@@ -15,6 +15,9 @@ RTC_DS3231 rtc;
 int sensorPin = A0;
 int sensorValue = 0;
 
+// relay
+int relayPin = 8;
+
 void setup(){
     Serial.begin(9600);
     while (!Serial) {
@@ -23,6 +26,9 @@ void setup(){
 
     // sensor
     pinMode(sensorPin, INPUT);
+
+    // relay
+    pinMode(relayPin, OUTPUT);
 
     // timestamp
     if (!rtc.begin()) {
@@ -51,19 +57,19 @@ void loop(){
 
     myFile = SD.open("sidata.csv", FILE_WRITE);
     if (myFile) {
-        myFile.print(sensorValue);
-        myFile.print(",");
         myFile.print(now.day(), DEC);
         myFile.print(".");
         myFile.print(now.month(), DEC);
         myFile.print(".");
         myFile.print(now.year(), DEC);
-        myFile.print("|");
+        myFile.print(",");
         myFile.print(now.hour(), DEC);
         myFile.print(":");
         myFile.print(now.minute(), DEC);
         myFile.print(":");
         myFile.print(now.second(), DEC);
+        myFile.print(",");
+        myFile.print(sensorValue);
         myFile.print('\n');
         myFile.flush();
         myFile.close();
@@ -71,5 +77,17 @@ void loop(){
         Serial.println("error");
     }
 
-    delay(3000);
+    if(sensorValue > 425) {
+        digitalWrite(relayPin, 1);
+        // pause to let water infiltrate
+        // adjust according to hose length
+        // delay(50000);
+        // digitalWrite(relayPin, 0);
+        // delay(10000);
+    } else {
+        digitalWrite(relayPin, 0);
+        // delay(60000);
+    }
+
+    delay(2000);
 }

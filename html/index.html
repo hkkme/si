@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <div id="myPlot" style="height:600px;width:100%;max-width:10000px"></div>
+        <div id="myPlot" style="height:600px;width:100%"></div>
 
         <script>
 
@@ -29,8 +29,8 @@
                 for (let i = 1; i < lines.length; i++) {
                     if (lines[i].trim() === '') continue; // skip empty lines
                     const values = lines[i].split(',');
-                    yArr.push(values[0]);
                     xArr.push(values[1]);
+                    yArr.push(values[2]);
                 }
 
                 const result = {
@@ -38,6 +38,7 @@
                         yArr,
                 };
 
+                // console.log(result);
                 return result;
             }
 
@@ -56,7 +57,7 @@
                         title: "time stamp"
                     },
                     yaxis: {range: [600, 300], title: "soil moisture"},
-                    title: "11.09.2024",
+                    title: "13.09.2024",
                     font: {
                         family: 'Courier New, monospace',
                         size: 8
