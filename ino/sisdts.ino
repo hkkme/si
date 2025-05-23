@@ -54,23 +54,16 @@ void loop(){
     Serial.println(sensorValue);
 
     DateTime now = rtc.now();
+    char dateBuffer[16];
 
     myFile = SD.open("sidata.csv", FILE_WRITE);
+
     if (myFile) {
-        myFile.print(now.day(), DEC);
-        myFile.print(".");
-        myFile.print(now.month(), DEC);
-        myFile.print(".");
-        myFile.print(now.year(), DEC);
-        myFile.print(",");
-        myFile.print(now.hour(), DEC);
-        myFile.print(":");
-        myFile.print(now.minute(), DEC);
-        myFile.print(":");
-        myFile.print(now.second(), DEC);
-        myFile.print(",");
-        myFile.print(sensorValue);
-        myFile.print('\n');
+        sprintf(dateBuffer, "%04d-%02d-%02d,%02d:%02d:%02d,%00d",
+            now.year(), now.month(), now.day(),
+            now.hour(), now.minute(), now.second(),
+            sensorValue);
+        myFile.println(dateBuffer);
         myFile.flush();
         myFile.close();
     } else {
@@ -81,12 +74,12 @@ void loop(){
         digitalWrite(relayPin, 1);
         // pause to let water infiltrate
         // adjust according to hose length
-        delay(50000);
-        digitalWrite(relayPin, 0);
-        delay(10000);
+        // delay(50000);
+        // digitalWrite(relayPin, 0);
+        // delay(10000);
     } else {
         digitalWrite(relayPin, 0);
-        delay(60000);
+        // delay(60000);
     }
 
     delay(2000);

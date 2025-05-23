@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdn.plot.ly/plotly-2.35.0.min.js"></script>
+        <title>sidata</title>
+    </head>
+
+    <body>
+        <div id="myPlot" style="height:600px;width:100%"></div>
+
+        <script>
+
+            function fetchAndProcessCSV(url) {
+                fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    visualiseData(parseCSV(data));
+                })
+                .catch(error => console.error('Error:', error));
+            }
+
+            function parseCSV(csv) {
+                const lines = csv.split('\n');
+                const headers = lines[0].split(',');
+                const xArr = [];
+                const yArr = [];
+
+                for (let i = 1; i < lines.length; i++) {
+                    if (lines[i].trim() === '') continue; // skip empty lines
+                    const values = lines[i].split(',');
+                    xArr.push(values[1]);
+                    yArr.push(values[2]);
+                }
+
+                const result = {
+                        xArr,
+                        yArr,
+                };
+
+                // console.log(result);
+                return result;
+            }
+
+            function visualiseData(parsedData) {
+
+                const data = [{
+                    x: parsedData.xArr,
+                    y: parsedData.yArr,
+                    mode:"lines"
+                }];
+
+                const xArrLength = parsedData.xArr.length;
+
+                const layout = {
+                    xaxis: {
+                        title: "time stamp"
+                    },
+                    yaxis: {range: [600, 300], title: "soil moisture"},
+                    title: "13.09.2024",
+                    font: {
+                        family: 'Courier New, monospace',
+                        size: 8
+                    }
+                };
+
+                Plotly.newPlot("myPlot", data, layout);
+
+            }
+
+            fetchAndProcessCSV('/si/data/test01/SIDATA.CSV');
+
+        </script>
+
+    </body>
+</html>
